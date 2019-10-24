@@ -11,6 +11,7 @@
 #include <vector>
 #include <cmath>
 #include <algorithm>
+#include "palindrome.hpp"
 
 constexpr int32_t MAX_NUMBER_VALUE = 1000;
 
@@ -87,45 +88,9 @@ int largest_prime(uint64_t n) //Precondition: n is larger or equal than 2.
 	return largest_prime;
 }
 
-int largest_palindrome(const int product_digits) //Returns the highest integer palindrome obtained by the product of integers
-												 //of product_digits number of digits
-{
 
-	int first_term = round(pow(10, product_digits - 1)); // This will make both first_term and second_term start from the minimum value of
-														 // product_digits number of digits
-	int second_term = first_term;
-	int product {0};
-	int palindrome = 1;
-
-	std::string check1, check2;
-	const int max_value = round(pow(10, product_digits)); //Round functions is used due to some miscalculations where max_valued was truncated to 99
-
-	while (first_term < max_value)
-	{
-
-		second_term = first_term;
-		while(second_term < max_value)
-		{
-			product = first_term * second_term;
-			++second_term;
-
-			check1 = std::to_string(product);  //These instructions convert the product to string
-			check2 = check1;				   //then checks if the product string and it's reverse are equal
-			std::reverse(check2.begin(), check2.end()); 	//REMINDER: This could be a function of it's own
-
-			if(check1 == check2 && product > palindrome) //Checks for equality and if the candidate palindrome is largest than palindrome
-			{
-				palindrome = std::stoi(check1);
-			}
-		}
-		++first_term;
-
-
-	}
-    return palindrome;
-}
 int main() {
 
-	std::cout << largest_palindrome(3) << std::endl;
+	std::cout << palindrome::largest_prod_palindrome(5) << std::endl;
 	return 0;
 }
