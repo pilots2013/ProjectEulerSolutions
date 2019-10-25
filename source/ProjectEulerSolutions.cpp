@@ -12,21 +12,10 @@
 #include <cmath>
 #include <algorithm>
 #include "palindrome.hpp"
+#include "numerics.hpp"
 
-constexpr int32_t MAX_NUMBER_VALUE = 1000;
 
-int sum_first_3and5muls(int floor_value) //Sums multiples of 3 and 5 up to floor_value
-{
-	int number_sum = 0;
-	for(int i = 1; i < floor_value; ++i)
-	{
-		if(i % 3 == 0 || i % 5 == 0)
-				{
-					number_sum += i;
-				}
-	}
-	return number_sum;
-}
+
 int fib_even_sum(int floor_value) //Sums the even fibonacci numbers up to floor_value
 {
 	int number_sum = 0;
@@ -91,6 +80,6 @@ int largest_prime(uint64_t n) //Precondition: n is larger or equal than 2.
 
 int main() {
 
-	std::cout << palindrome::largest_prod_palindrome(5) << std::endl;
+	std::cout << numerics::sum_first_muls(1500000, {2, 3, 5}) << std::endl;
 	return 0;
 }

@@ -13,7 +13,7 @@ namespace palindrome
 {
 
 	uint64_t largest_prod_palindrome(const int); //Returns the largest palindrome made by the product of n digits numbers
-}
+};
 
 
 
